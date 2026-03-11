@@ -1,0 +1,16 @@
+services:
+    feishin:
+        container_name: feishin
+        image: 'ghcr.io/jeffvli/feishin:latest'
+        environment:
+            - SERVER_NAME=${SERVER_NAME} # pre-defined server name
+            - SERVER_LOCK=true # When true AND name/type/url are set, only username/password can be toggled
+            - SERVER_TYPE=jellyfin # the allowed types are: jellyfin, navidrome, subsonic. These values are case insensitive
+            - SERVER_URL=${SERVER_URL}
+            - LEGACY_AUTHENTICATION=false # When SERVER_LOCK is true, sets the legacy (plaintext) authentication flag for Subsonic/OpenSubsonic servers
+            - ANALYTICS_DISABLED=true # Set to true to disable Umami analytics tracking
+        ports:
+            - 9180:9180
+            # Alternatively, to restrict to only localhost, - 127.0.0.1:9180:8190
+        network_mode: host
+        restart: unless-stopped

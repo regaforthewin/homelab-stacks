@@ -1,0 +1,78 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jakarta
+    volumes:
+      - ${RADARR_DIR}:/config
+      - ${ANIME_MOVIES_DIR}:/anime-movies #optional
+      - ${QBittorrent_DIR}:/download #optional
+    ports:
+      - 7878:7878
+    network_mode: arrs-sea
+    restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jakarta
+    volumes:
+      - ${SONARR_DIR}:/config
+      - ${ANIME_SHOWS_DIR}:/anime-shows #optional
+      - ${QBittorrent_DIR}:/download #optional
+    ports:
+      - 8989:8989
+    network_mode: arrs-sea
+    restart: unless-stopped
+
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jakarta
+    volumes:
+      - ${LIDARR_DIR}:/config
+      - ${MUSIC_DIR}:/music #optional
+      - ${QBittorrent_DIR}:/downloads #optional
+    ports:
+      - 8686:8686
+    network_mode: arrs-sea
+    restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jakarta
+    volumes:
+      - ${BAZARR_DIR}:/config
+      - ${ANIME_MOVIES_DIR}:/anime-movies #optional
+      - ${ANIME_SHOWS_DIR}:/anime-shows #optional
+    ports:
+      - 6767:6767
+    network_mode: arrs-sea
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jakarta
+    volumes:
+      - ${PROWLARR_DIR}:/config
+    ports:
+      - 9696:9696
+    network_mode: arrs-sea
+    restart: unless-stopped
