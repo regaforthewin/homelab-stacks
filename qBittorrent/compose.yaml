@@ -11,7 +11,7 @@ services:
       - TORRENTING_PORT=21212
     volumes:
       - ${QBITTORRENT_DIR}:/config
-      - ${MEDIA}:/downloads/media #optional
+      - ${MEDIA}:/media #optional
     ports:
       - 8800:8800
       - 21212:21212
