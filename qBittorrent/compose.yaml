@@ -10,7 +10,7 @@ services:
       - WEBUI_PORT=8800
       - TORRENTING_PORT=21212
     volumes:
-      - &{QBITTORRENT_DIR}:/config
+      - ${QBITTORRENT_DIR}:/config
       - ${MEDIA}:/downloads/media #optional
     ports:
       - 8800:8800
