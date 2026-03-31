@@ -6,6 +6,7 @@ services:
       - "80:80"
       - "443:443"
       - "443:443/udp"
+      - "8080:8080"
     volumes:
       - ${CADDYFILE_DIR}:/etc/caddy
      # -./site:/srv
