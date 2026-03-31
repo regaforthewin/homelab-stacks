@@ -9,7 +9,7 @@ services:
       - "8080:8080"
     volumes:
       - ${CADDYFILE_DIR}:/etc/caddy
-     # -./site:/srv
+      - /var/www/pterodactyl:/srv
       - caddy_data:/data
       - caddy_config:/config
 
