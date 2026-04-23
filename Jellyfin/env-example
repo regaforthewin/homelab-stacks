@@ -1,0 +1,3 @@
+JELLYFIN_DIR=/opt/docker/Jellyfin
+JELLYFIN_CACHE=/opt/docker/Jellyfin/cache
+MEDIA_1=/media/Anime
