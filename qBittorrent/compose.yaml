@@ -7,13 +7,24 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Jakarta
-      - WEBUI_PORT=8800
+      - WEBUI_PORT=8808
       - TORRENTING_PORT=21212
     volumes:
       - ${QBITTORRENT_DIR}:/config
-      - ${MEDIA}:/media #optional
+      - ${LOCAL_DIR}:${LOCAL_DIR} #optional
     ports:
-      - 8800:8800
+      - 8808:8808
       - 21212:21212
       - 21212:21212/udp
     restart: unless-stopped
+
+  qui:
+    image: ghcr.io/autobrr/qui:latest
+    container_name: qui
+    restart: unless-stopped
+    ports:
+      - "7476:7476"
+    volumes:
+      - ${QUI_DIR}:/config
+      - ${LOCAL_DIR}:${LOCAL_DIR}
+    #environment:
