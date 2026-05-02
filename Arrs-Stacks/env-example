@@ -1,0 +1,12 @@
+  # VARIABLE = value
+RADARR_DIR=/opt/docker/Radarr
+SONARR_DIR=/opt/docker/Sonarr
+LIDARR_DIR=/opt/docker/Lidarr
+BAZARR_DIR=/opt/docker/Bazarr
+PROWLARR_DIR=/opt/docker/Prowlarr
+
+QBITTORRENT_DIR=/media/qBittorrent
+
+MEDIA_DIR=/media/Jellyfin
+
+MUSIC_DIR=/media/Music

@@ -1,0 +1,3 @@
+PASSWORD=super-secret-idk-what-for
+LIBRESPEED_DIRECTORY=/opt/docker/LibreSpeed
+LIBRESPEED_PORT=9000

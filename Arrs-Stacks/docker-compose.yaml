@@ -8,8 +8,8 @@ services:
       - TZ=Asia/Jakarta
     volumes:
       - ${RADARR_DIR}:/config
-      - ${ANIME_MOVIES_DIR}:/anime-movies #optional
-      - ${QBittorrent_DIR}:/download #optional
+      - ${MEDIA_DIR}:/media #optional
+      - ${QBITTORRENT_DIR}:/download #optional
     ports:
       - 7878:7878
     network_mode: arrs-sea
@@ -24,8 +24,8 @@ services:
       - TZ=Asia/Jakarta
     volumes:
       - ${SONARR_DIR}:/config
-      - ${ANIME_SHOWS_DIR}:/anime-shows #optional
-      - ${QBittorrent_DIR}:/download #optional
+      - ${MEDIA_DIR}:/media #optional
+      - ${QBITTORRENT_DIR}:/download #optional
     ports:
       - 8989:8989
     network_mode: arrs-sea
@@ -40,8 +40,8 @@ services:
       - TZ=Asia/Jakarta
     volumes:
       - ${LIDARR_DIR}:/config
-      - ${MUSIC_DIR}:/music #optional
-      - ${QBittorrent_DIR}:/downloads #optional
+      - ${MUSIC_DIR}:/media/music #optional
+      - ${QBITTORRENT_DIR}:/download #optional
     ports:
       - 8686:8686
     network_mode: arrs-sea
@@ -56,8 +56,7 @@ services:
       - TZ=Asia/Jakarta
     volumes:
       - ${BAZARR_DIR}:/config
-      - ${ANIME_MOVIES_DIR}:/anime-movies #optional
-      - ${ANIME_SHOWS_DIR}:/anime-shows #optional
+      - ${MEDIA_DIR}:/media #optional
     ports:
       - 6767:6767
     network_mode: arrs-sea
@@ -76,3 +75,6 @@ services:
       - 9696:9696
     network_mode: arrs-sea
     restart: unless-stopped
+
+networks:
+  arrs-sea:
