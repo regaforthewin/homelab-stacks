@@ -33,20 +33,20 @@ services:
     healthcheck:
       disable: false
 
-  immich-folder-album-creator:
-    container_name: immich_folder_album_creator
-    image: salvoxia/immich-folder-album-creator:latest
-    restart: unless-stopped
-    volumes:
-     # mount needed for .albumprops to work
-     - /srv/phonebackups/rednote14_ftw:/usr/src/app/external
-    environment:
-      API_URL: http://immich_server:2283/api
-      API_KEY: "zFHymIWMmVrwObe5yxhgbKcQpgYPjlB02BMx5kDWCI"
-      ROOT_PATH: /usr/src/app/external
-      CRON_EXPRESSION: "* * * * *"
-      TZ: Asia/Jakarta
-      ALBUM_LEVELS: "3"
+  # immich-folder-album-creator:
+  #   container_name: immich_folder_album_creator
+  #   image: salvoxia/immich-folder-album-creator:latest
+  #   restart: unless-stopped
+  #   volumes:
+  #    # mount needed for .albumprops to work
+  #    - /srv/phonebackups/rednote14_ftw:/usr/src/app/external
+  #   environment:
+  #     API_URL: http://immich_server:2283/api
+  #     API_KEY: "zFHymIWMmVrwObe5yxhgbKcQpgYPjlB02BMx5kDWCI"
+  #     ROOT_PATH: /usr/src/app/external
+  #     CRON_EXPRESSION: "* * * * *"
+  #     TZ: Asia/Jakarta
+  #     ALBUM_LEVELS: "3"
 
   immich-machine-learning:
     container_name: immich_machine_learning
